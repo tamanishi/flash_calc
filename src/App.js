@@ -2,12 +2,13 @@ import React, {useEffect, useState} from 'react';
 
 import './App.css';
 
-const interval = 1300;
-
 function App() {
   const [count, setCount] = useState(0);
   const [answer, setAnswer] = useState([0, 0, 0]);
 
+  let query = new URLSearchParams(window.location.search);
+  const interval = query.get('interval') || 1000;
+  
   useEffect(() => {
     let id = setInterval(() => {
       setCount(count + 1);

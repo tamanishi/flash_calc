@@ -14,9 +14,12 @@ function App() {
     }, interval);
 
     if (count % 2 === 0) {
-      let x = Math.floor(Math.random() * 10);
-      let y = Math.floor(Math.random() * 10);
-      setAnswer([x, y]);
+      let x = 0, y = 0;
+      while ((x + y) < 10) {
+        x = Math.floor(Math.random() * 10);
+        y = Math.floor(Math.random() * 10);
+        setAnswer([x, y]);
+      }
     } else {
       setAnswer([answer[0], answer[1], answer[0] + answer[1]]);
     }
@@ -29,7 +32,7 @@ function App() {
 
   return (
     <div className="App-header">
-      <p>{answer[0]} + {answer[1]} = {answer[2]}</p>
+      <div className="box">{answer[0]} + {answer[1]} = {answer[2]}</div>
     </div>
   );
 }

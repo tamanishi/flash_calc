@@ -4,11 +4,11 @@ import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
-  const [answer, setAnswer] = useState([0, 0, 0]);
+  const [addition, setAddition] = useState([0, 0, 0]);
 
-  let query = new URLSearchParams(window.location.search);
+  const query = new URLSearchParams(window.location.search);
   const interval = query.get('interval') || 1000;
-  
+
   useEffect(() => {
     let id = setInterval(() => {
       setCount(count + 1);
@@ -19,10 +19,10 @@ function App() {
       while ((x + y) < 10) {
         x = Math.floor(Math.random() * 10);
         y = Math.floor(Math.random() * 10);
-        setAnswer([x, y]);
+        setAddition([x, y]);
       }
     } else {
-      setAnswer([answer[0], answer[1], answer[0] + answer[1]]);
+      setAddition([addition[0], addition[1], addition[0] + addition[1]]);
     }
 
     return () => {
@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="App-header">
-      <div className="box">{answer[0]} + {answer[1]} = {answer[2]}</div>
+      <div className="box">{addition[0]} + {addition[1]} = {addition[2]}</div>
     </div>
   );
 }

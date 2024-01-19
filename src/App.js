@@ -6,8 +6,8 @@ function App() {
   const [count, setCount] = useState(0);
   const [calcResult, setCalcResult] = useState([0, 0, 0, 0, 0]);
 
-//   const query = new URLSearchParams(window.location.search);
-//   const interval = query.get('interval') || 1000;
+  //   const query = new URLSearchParams(window.location.search);
+  //   const interval = query.get('interval') || 1000;
 
   useEffect(() => {
     // let id = setInterval(() => {
@@ -41,7 +41,7 @@ function App() {
           while (y > 10 || y < 2) {
             y = Math.floor(Math.random() * 10);
           }
-           setCalcResult([ope, x, y]);
+          setCalcResult([ope, x, y]);
           break;
         case 2:
           // 掛け算
@@ -92,7 +92,7 @@ function App() {
     }
 
     return () => {
-    //   clearInterval(id);
+      //   clearInterval(id);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
@@ -103,8 +103,8 @@ function App() {
     }}>
       <div className="App-header">
         <div className="box">{calcResult[1]} {
-          (()=>{
-            switch (calcResult[0]){
+          (() => {
+            switch (calcResult[0]) {
               case 0:
                 return '+';
               case 1:
@@ -118,12 +118,12 @@ function App() {
             }
           })()
         } {calcResult[2]} = {calcResult[3]}{
-          (()=>{
-            if(calcResult[0] === 3 && calcResult[4] > 0){
-              return '...' + calcResult[4];
-            }
-          })()
-        }</div>
+            (() => {
+              if (calcResult[0] === 3 && calcResult[4] > 0) {
+                return '...' + calcResult[4];
+              }
+            })()
+          }</div>
       </div>
     </div>
   );

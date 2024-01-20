@@ -6,13 +6,20 @@ function App() {
   const [count, setCount] = useState(0);
   const [calcResult, setCalcResult] = useState([0, 0, 0, 0, 0]);
 
-  //   const query = new URLSearchParams(window.location.search);
-  //   const interval = query.get('interval') || 1000;
+  const query = new URLSearchParams(window.location.search);
+  const interval = query.get('interval') || 1000;
+
+  if (query.has('interval') === true) {
+    console.log('interval value was specifided.')
+  }
 
   useEffect(() => {
-    // let id = setInterval(() => {
-    //   setCount(count + 1);
-    // }, interval);
+    let id = -1;
+    if (query.has('interval') === true) {
+      id = setInterval(() => {
+        setCount(count + 1);
+      }, interval);
+    }
 
     if (count % 2 === 0) {
       let x = 0, y = 0;
@@ -92,7 +99,9 @@ function App() {
     }
 
     return () => {
-      //   clearInterval(id);
+      if (query.has('interval') === true) {
+        clearInterval(id);
+      }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);

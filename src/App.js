@@ -35,8 +35,8 @@ function App() {
         case 0:
           // 足し算
           while ((x + y) < 50) {
-            x = Math.floor(Math.random() * 30);
-            y = Math.floor(Math.random() * 30);
+            x = Math.floor(Math.random() * 100);
+            y = Math.floor(Math.random() * 100);
             setCalcResult([ope, x, y]);
           }
           break;
@@ -47,6 +47,9 @@ function App() {
           }
           while (y > 100 || y < 2) {
             y = Math.floor(Math.random() * 10);
+          }
+          if (y > x) {
+            [x, y] = [y, x];
           }
           setCalcResult([ope, x, y]);
           break;

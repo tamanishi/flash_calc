@@ -34,9 +34,9 @@ function App() {
       switch (ope) {
         case 0:
           // 足し算
-          while ((x + y) < 20) {
-            x = Math.floor(Math.random() * 15);
-            y = Math.floor(Math.random() * 15);
+          while ((x + y) < 50) {
+            x = Math.floor(Math.random() * 30);
+            y = Math.floor(Math.random() * 30);
             setCalcResult([ope, x, y]);
           }
           break;
@@ -45,14 +45,14 @@ function App() {
           while (x > 100 || x < 10) {
             x = Math.floor(Math.random() * 100);
           }
-          while (y > 10 || y < 2) {
+          while (y > 100 || y < 2) {
             y = Math.floor(Math.random() * 10);
           }
           setCalcResult([ope, x, y]);
           break;
         case 2:
           // 掛け算
-          while (x > 100 || x < 2) {
+          while (x > 20 || x < 2) {
             x = Math.floor(Math.random() * 100);
           }
           while (y > 10 || y < 2) {
@@ -62,7 +62,7 @@ function App() {
           break;
         case 3:
           // 割り算
-          while (x > 100 || x < 10 || x === 0) {
+          while (x > 70 || x < 10 || x === 0) {
             x = Math.floor(Math.random() * 100);
           }
           while (y > 10 || y < 2) {
